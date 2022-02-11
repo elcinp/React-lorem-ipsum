@@ -7,7 +7,15 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setText(data);
+    let amount = parseInt(count)
+    // console.log(count);
+    if(count<=0){
+      amount=1
+    }
+    if (count>8){
+      amount=8
+    }
+    setText(data.slice(0,amount));
   };
 
   return (
@@ -22,7 +30,7 @@ function App() {
           value={count}
           onChange={(e) => setCount(e.target.value)}
         />
-        <button className="btn" type="submit">
+        <button type="submit" className="btn" >
           generate
         </button>
       </form>
